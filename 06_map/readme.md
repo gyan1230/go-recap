@@ -33,3 +33,4 @@ Initializing a Map
                     }
 4. Create an empty map using map literal by leaving the curly braces empty 
     eg: var m = map[string]int{}   //functionally identical to using the make() function
+5. If you try to add a key that already exists in the map, then it will simply be overridden by the new value.
