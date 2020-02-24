@@ -1,3 +1,6 @@
+Map:
+https://www.callicoder.com/golang-maps/
+
 1. Map is an unordered collections of key-value pairs. Keys are unique, values may not be.
 2. Map is used for fast lookups, retrieval and deletion of data based on keys.
 
