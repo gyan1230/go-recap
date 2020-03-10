@@ -40,4 +40,9 @@ func main() {
 	m4["four"] = 4
 	fmt.Println(m4)
 
+	m5 := map[string]int{}
+	fmt.Println("m5 is nil: ", m5 == nil)
+	m5["one"] = 1
+	fmt.Println(m5)
+
 }

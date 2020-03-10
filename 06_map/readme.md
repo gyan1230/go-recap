@@ -24,6 +24,9 @@ func main() {
 	// m["one hundred"] = 100
 }
 
+Note: 
+It is, therefore, necessary to initialize a map before adding items to it.
+
 Initializing a Map
 1. initializing a map using make function -> not nil map
     eg: var m = make(map[string]int)
