@@ -20,7 +20,7 @@ func main() {
 
 	for x := 0; x <= 5; x++ {
 		for y := 0; y < 5; y++ {
-			if x == 2 && y == 3 { //skip printing "inner loop when x is 2"
+			if x == 2 && y == 3 { //skip printing "inner loop when x is 2 and y is 3"
 				continue
 			}
 			fmt.Println("inner loop X:", x, " Y:", y)
