@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
 )
 
@@ -25,11 +26,14 @@ func main() {
 	checkErr(err)
 	fmt.Printf("wrote %d bytes\n", n2)
 
-	b := make([]byte, 100)
-	n3, err := f.Read(b)
+	// b := make([]byte, 100)
+	// n3, err := f.Read(b)
+	// checkErr(err)
+
+	b, err := ioutil.ReadFile("/tmp/test")
 	checkErr(err)
 	stringversion := string(b)
-	fmt.Println(n3, stringversion)
+	fmt.Println("The content of file: ", stringversion)
 }
 
 func checkErr(e error) {
