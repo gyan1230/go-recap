@@ -33,7 +33,8 @@ func main() {
 	urlch := make(chan string)
 	respch := make(chan string)
 
-	for i := 0; i < len(urls); i++ {
+	for i := 0; i < 3; i++ {
+		//It's kind of load balancer, change the value to 3 worker
 		go worker(urlch, respch, i)
 	}
 
@@ -51,13 +52,15 @@ func generator(url string, urlch chan string) {
 }
 
 func worker(urlch chan string, resp chan string, id int) {
-	url := <-urlch
-	res, err := check(url)
-	if err == nil {
-		resp <- fmt.Sprintf("%s >>>>> workerID:%d >>>>> status: %d\n", url, id, res)
-		return
+	for {
+		url := <-urlch
+		res, err := check(url)
+		if err == nil {
+			resp <- fmt.Sprintf("%s >>>>> workerID:%d >>>>> status: %d\n", url, id, res)
+		} else {
+			resp <- fmt.Sprintf("%s  >>>>> in workerID:%d: >>>>> error: %s\n", url, id, err)
+		}
 	}
-	resp <- fmt.Sprintf("%s  >>>>> in workerID:%d: >>>>> error: %s\n", url, id, err)
 }
 
 func check(url string) (status int, err error) {
